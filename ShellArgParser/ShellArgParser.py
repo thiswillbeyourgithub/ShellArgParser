@@ -49,17 +49,31 @@ class ShellArgParser:
         for arg in args:
             assert "=" not in arg, f"Found a '=' sign in arg: '{arg}'"
             assert f"ARGS_{arg}=" not in output, f"Arg {arg} seems already parsed! Duplicate?"
-            output += f"\nARGS_{arg}=\"1\""
+            while arg.startswith("_"):
+                arg = arg[1:]
+
+            output += f"\nARGS_{arg}=1"
 
         for k, v in kwargs.items():
+            while k.startswith("_"):
+                k = k[1:]
             if v is True:
                 v = 1
             if v in [False, None]:
                 v = 0
 
+            while str(v).startswith("'") and str(v).endswith("'"):
+                v = str(v)[1:-1]
+
+            while str(v).startswith("\"") and str(v).endswith("\""):
+                v = str(v)[1:-1]
+
             assert f"ARGS_{k}=" not in output, f"Arg {arg} seems already parsed! Duplicate?"
 
-            output += f"\nARGS_{k}=\"{v}\""
+            if str(v).isdigit():
+                output += f"\nARGS_{k}={v}"
+            else:
+                output += f"\nARGS_{k}=\"{v}\""
 
 
         print(output)
