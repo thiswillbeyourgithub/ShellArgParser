@@ -24,6 +24,10 @@ Will parse the args and kwargs as shell environment variables, handy for use in 
 echo $ARGS_TEST  # outputs 'something'
 ```
 
+## But why would you make this?
+Handling user arguments are a major annoyance for me in shell, and in python using `fire` makes it a breeze, so it's is a great way to avoid reinventing the wheel.
+Hence, when writing a small shell script, using a python cli tool oneliner makes is a real time saver for me.
+
 ## Notes:
 - `-something` is parsed as `ARGS_SOMETHING=1`
 - `-no-something` is parsed as `ARGS_SOMETHING=0`
