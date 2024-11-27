@@ -11,7 +11,7 @@ setup(
     description="Simple tool to parse shell arguments using eval",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="TODO_URL",
+    url="https://github.com/thiswillbeyourgithub/ShellArgParser",
     packages=find_packages(),
 
     classifiers=[
