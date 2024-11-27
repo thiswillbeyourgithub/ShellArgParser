@@ -37,7 +37,7 @@ class ShellArgParser:
         # redirect the sys stdout when running fire, otherwise we sometimes get a verbose print
         sys.stdout = open(os.devnull, 'w')
         try:
-            args, kwargs = fire.Fire(lambda (*arg, **kwargs): (arg, kwargs))
+            args, kwargs = fire.Fire(lambda *arg, **kwargs: (arg, kwargs))
         except Exception:
             sys.stdout = sys.__stdout__
             raise
