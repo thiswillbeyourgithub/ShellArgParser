@@ -5,7 +5,7 @@ A simple python tool to parse any arg / kwarg arguments in a manner that is easy
 ## I don't understand
 For example:
 ```sh
-./shell_arg_parser.sh --test=something -a -b -no-c
+uvx ShellArgParser@latest --test=something -a -b -no-c
 ```
 Will print this text:
 ```sh
@@ -17,9 +17,9 @@ ARGS_TEST="something"
 
 So running this:
 ```sh
-eval $(./shell_arg_parser.sh --test=something -a -b -no-c)
+eval $(uvx ShellArgParser@latest --test=something -a -b -no-c)
 ```
-Will parse the args and kwargs as environment variables, handy for use in the shell:
+Will parse the args and kwargs as shell environment variables, handy for use in the shell:
 ```sh
 echo $ARGS_TEST  # outputs 'something'
 ```
@@ -33,7 +33,7 @@ echo $ARGS_TEST  # outputs 'something'
 
 # Getting started
 * From pypi:
-    * As a tool: `uvx ShellArgParser@latest --help`
+    * As a uv tool: `uvx ShellArgParser@latest --help`
     * Via uv: `uv pip install ShellArgParser`
     * Via pip: `pip install ShellArgParser`
 * From github:
