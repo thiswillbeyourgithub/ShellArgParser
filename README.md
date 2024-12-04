@@ -5,14 +5,16 @@ A simple python tool to parse any arg / kwarg arguments in a manner that is easy
 ## I don't understand
 For example:
 ```sh
-uvx ShellArgParser@latest --test=something -a -b -no-c
+uvx ShellArgParser@latest a_file --test=something -a -b -no-c another_file
 ```
 Will print this text:
 ```sh
+ARGS_1="a_file"
+ARGS_2="another_file"
+ARGS_TEST="something"
 ARGS_A=1
 ARGS_B=1
 ARGS_C=0
-ARGS_TEST="something"
 ```
 
 So running this:

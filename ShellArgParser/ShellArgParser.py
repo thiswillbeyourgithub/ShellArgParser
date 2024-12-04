@@ -20,14 +20,17 @@ class ShellArgParser:
 
         output = ""
 
-        for arg in args:
+        for iarg, arg in enumerate(args):
             arg = arg.upper()
             assert "=" not in arg, f"Found a '=' sign in arg: '{arg}'"
-            assert f"ARGS_{arg}=" not in output, f"Arg {arg} seems already parsed! Duplicate?"
+            assert f"ARGS_{iarg + 1}=" not in output, f"Arg {arg} in position {iarg + 1} seems already parsed! Duplicate?"
             while arg.startswith("_"):
                 arg = arg[1:]
 
-            output += f"\nARGS_{arg}=1"
+            if str(arg).isdigit():
+                output += f"\nARGS_{iarg + 1}={arg}"
+            else:
+                output += f"\nARGS_{iarg + 1}=\"{arg}\""
 
         for k, v in kwargs.items():
             k = k.upper()
