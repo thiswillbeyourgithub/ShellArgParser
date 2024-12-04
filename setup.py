@@ -7,7 +7,7 @@ with open("README.md", "r") as readme:
 
 setup(
     name="ShellArgParser",
-    version="0.2.2",
+    version="0.2.3",
     description="Simple tool to parse shell arguments using eval",
     long_description=long_description,
     long_description_content_type="text/markdown",

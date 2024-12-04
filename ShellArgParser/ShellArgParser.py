@@ -3,7 +3,7 @@ import sys
 import os
 
 class ShellArgParser:
-    __VERSION__: str = "0.2.2"
+    __VERSION__: str = "0.2.3"
 
     def __init__(
         self,
