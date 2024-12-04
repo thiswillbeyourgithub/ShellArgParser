@@ -21,7 +21,6 @@ class ShellArgParser:
         output = ""
 
         for iarg, arg in enumerate(args):
-            arg = arg.upper()
             assert "=" not in arg, f"Found a '=' sign in arg: '{arg}'"
             assert f"ARGS_{iarg + 1}=" not in output, f"Arg {arg} in position {iarg + 1} seems already parsed! Duplicate?"
             while arg.startswith("_"):
